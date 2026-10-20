@@ -1,0 +1,219 @@
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #01030d;
+}
+
+.hypergraph {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+.hypergraph-frame {
+  position: fixed;
+  width: 200px;
+  height: 250px;
+  box-sizing: border-box;
+  border: 6px solid #fff;
+  border-radius: 18px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.hypergraph-title {
+  position: fixed;
+  /* top of the capital letters lines up with the top edge of the frame */
+  margin-top: -0.17em;
+  color: #fff;
+  font: 400 min(120px, calc((100vw - 340px) / 7.5))/1 'IBM Plex Sans', system-ui, sans-serif;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.2s;
+}
+
+.hypergraph-title b {
+  font-weight: 700;
+}
+
+.hypergraph-name {
+  display: inline-block;
+  letter-spacing: -0.03em;
+}
+
+.hypergraph-tagline {
+  /* starts just right of the foot of the "p" and hangs from the title baseline */
+  position: absolute;
+  left: 36%;
+  bottom: calc(3.5% - 15px);
+  font-size: 0.165em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.typed-doc {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  color: rgba(255, 255, 255, 0.88);
+  font: 400 19px/1.6 'IBM Plex Sans', system-ui, sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+  mask-image: linear-gradient(to bottom, transparent 0, #000 24px);
+}
+
+.typed-doc-inner {
+  box-sizing: border-box;
+  width: min(880px, 100%);
+  margin: 0 auto;
+  padding: 8px 24px 64px;
+}
+
+.typed-doc p {
+  margin: 0 0 1em;
+}
+
+.typed-doc b {
+  font-weight: 700;
+  color: #fff;
+}
+
+.typed-doc h3 {
+  margin: 1.4em 0 0.6em;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #fff;
+}
+
+.typed-title {
+  margin: 1.2em 0 0.4em !important;
+}
+
+.typed-code {
+  margin: 0 0 1.2em;
+  padding: 14px 18px;
+  overflow-x: auto;
+  border: 1px solid rgba(56, 217, 255, 0.18);
+  border-radius: 10px;
+  background: rgba(47, 107, 255, 0.08);
+  font: 400 15px/1.55 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+  color: #dbe8ff;
+}
+
+.tok-kw {
+  color: #38d9ff;
+}
+
+.tok-str {
+  color: #ffa63a;
+}
+
+.tok-var {
+  color: #5ff5d0;
+}
+
+.typed-caret {
+  display: inline-block;
+  width: 0.5em;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: #fff;
+  animation: typed-blink 1s steps(1) infinite;
+}
+
+@keyframes typed-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.typed-doc hr {
+  margin: 1.6em 0;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.typed-more {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border: 1px solid rgba(56, 217, 255, 0.6);
+  border-radius: 999px;
+  background: rgba(1, 3, 13, 0.85);
+  color: #fff;
+  font: 400 16px/1 'IBM Plex Sans', system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%);
+  transition: opacity 0.4s ease;
+  animation: typed-pulse 1.8s ease-in-out infinite;
+}
+
+.typed-more.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@keyframes typed-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(56, 217, 255, 0.55);
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(56, 217, 255, 0);
+    transform: translateX(-50%) scale(1.06);
+  }
+}
+
+.hypergraph-dim {
+  position: fixed;
+  pointer-events: none;
+  box-shadow: 0 0 0 100vmax rgba(1, 3, 13, 0.72);
+}
+
+.hypergraph-cta {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 72px);
+  padding: 14px 26px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  background: #fff;
+  color: #01030d;
+  font: 600 17px/1 'IBM Plex Sans', system-ui, sans-serif;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease, background 0.2s ease, color 0.2s ease;
+}
+
+/* the button only appears once the whole group has moved up */
+.hypergraph-title.is-up .hypergraph-cta {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hypergraph-cta:hover,
+.hypergraph-cta:focus-visible {
+  background: transparent;
+  color: #fff;
+}
