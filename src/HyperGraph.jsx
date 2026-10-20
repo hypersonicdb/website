@@ -598,8 +598,8 @@ export default function HyperGraph() {
       <div ref={labelRef} className="hypergraph-title">
         <div className="hypergraph-name"><b>Hyper</b>Sonic</div>
         <div ref={taglineRef} className="hypergraph-tagline">First AI Memory Database</div>
-        <a className="hypergraph-cta" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-          Join LinkedIn
+        <a className="hypergraph-cta" href="https://www.linkedin.com/newsletters/ai-for-business-leaders-7430140442660200448/" target="_blank" rel="noopener noreferrer">
+          Join Airembr to learn more
         </a>
       </div>
       <TypedDoc
